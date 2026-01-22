@@ -13,15 +13,20 @@ enum proc_status {
 };
 
 struct process {
-    int pid;
-    struct syscall syscall;
-    enum proc_status status;
-    uint mepc, saved_registers[32];
-    /* Student's code goes here (Preemptive Scheduler | System Call). */
+  int pid;
+  struct syscall syscall;
+  enum proc_status status;
+  uint mepc, saved_registers[32];
+  /* Student's code goes here (Preemptive Scheduler | System Call). */
 
-    /* Add new fields for lifecycle statistics, MLFQ or process sleep. */
+  /* Add new fields for lifecycle statistics, MLFQ or process sleep. */
+  ulonglong creation_time;
+  ulonglong first_scheduled_ts;
 
-    /* Student's code ends here. */
+  int total_interrupts;
+
+
+  /* Student's code ends here. */
 };
 #define MAX_NPROCESS 16
 
